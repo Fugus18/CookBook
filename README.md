@@ -13,7 +13,7 @@ A simple Python OOP project for managing recipes using a `Recipe` and `CookBook`
 🚀 Getting Started
 
 1. Clone the repository:
-   git clone https://github.com/Fugus18/recipe-manager.git
+   git clone https://github.com/Fugus18/CookBook.git
    cd recipe-manager
 2. Run the main script:
    python main.py
