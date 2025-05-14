@@ -91,10 +91,10 @@ class Recipe:
                 break
             instructions.append(step)
     
-        prep_time = input("Prep time: ")
-        cook_time = input("Cook time: ")
+        prep_time = input("Prep time (in minutes): ")
+        cook_time = input("Cook time (in minutes): ")
         servings = input("Number of servings: ")
-        difficulty = input("Difficulty (Easy/Medium/Hard): ")
+        difficulty = input("Difficulty (easy/medium/hard): ")
         cuisine = input("Cuisine (e.g. 'Italian', 'Japanese'): ")
         author = input("Author name: ")
     
@@ -115,23 +115,17 @@ class CookBook:
         else:
             print('This recipe does not belong to Recipe class')
 
-    def remove_recipe(self, recipe):
-        if isinstance(recipe, Recipe):
-            try:
-                self.recipes.remove(recipe)
-                print(f"Recipe '{recipe.name}' removed")
-            except ValueError:
-                print(f"Recipe '{recipe.name}' not found in the cookbook")
-        else:
-            print('This recipe does not belong to Recipe class')
-
     def list_recipes(self):
         if not self.recipes:
+            print('-'*30)
             print("The cookbook is empty.")
+            print('-'*30)
         else:
+            print('-'*30)
             print("Recipes in the cookbook:")
             for recipe in self.recipes:
                 print(f"- {recipe.name}")
+            print('-'*30)
                 
     def find_recipe(self, name):
         for recipe in self.recipes:
@@ -142,6 +136,18 @@ class CookBook:
         print('-'*30)
         print(f"No recipe found with the name '{name}'.")
         print('-'*30)
+        
+    def remove_recipe(self, name):
+        to_remove = next((r for r in self.recipes if r.name.lower() == name.lower()), None)
+        if to_remove:
+            self.recipes.remove(to_remove)
+            print('-'*30)
+            print(f"Recipe '{to_remove.name}' removed")
+            print('-'*30)
+        else:
+            print('-'*30)
+            print(f"Recipe '{name}' not found in the cookbook")
+            print('-'*30)
 
 class IngredientData:
     def __init__(self, unit, carbs, protein, fat, base_amount):
@@ -218,26 +224,19 @@ if __name__ == "__main__":
             recipe = Recipe.from_input()
             cookbook.add_recipe(recipe)
         elif choice == "2":
-            print('-'*30)
             cookbook.list_recipes()
-            print('-'*30)
         elif choice == "3":
             name = input("Enter the recipe name to find: ")
             cookbook.find_recipe(name)
         elif choice == "4":
             name = input("Enter the recipe name to remove: ")
-            # Find the actual recipe object to remove
-            to_remove = next((r for r in cookbook.recipes if r.name.lower() == name.lower()), None)
-            if to_remove:
-                cookbook.remove_recipe(to_remove)
-            else:
-                print('-'*30)
-                print(f"Recipe '{name}' not found.")
-                print('-'*30)
+            cookbook.remove_recipe(name)
         elif choice == "5":
             print('-'*30)
             print("Goodbye!")
             print('-'*30)
             break
         else:
+            print('-'*30)
             print("Invalid option. Please choose 1-5.")
+            print('-'*30)
