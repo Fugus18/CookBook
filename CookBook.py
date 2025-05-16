@@ -1,11 +1,11 @@
 from datetime import datetime
 
 class Recipe:
-    def __init__(self, name, category, ingredients, instructions, 
+    def __init__(self, name, categories, ingredients, instructions, 
                  prep_time, cook_time, servings, difficulty, 
                  cuisine, author, date_created = None):
         self.name = name
-        self.category = category
+        self.categories = categories if categories else []
         self.ingredients = ingredients if ingredients else []
         self.instructions = instructions # e.g., ["Step 1", "Step 2"]
         self.prep_time = prep_time
@@ -32,7 +32,7 @@ class Recipe:
         print('=' * 30)
         print(self.name.upper())
         print('=' * 30)
-        print(f"Type: {self.category}")
+        print(f"Categories: {', '.join(self.categories)}")
         print(f"Prep time: {self.prep_time}")
         print(f"Cook time: {self.cook_time}")
         print(f"Servings: {self.servings}")
@@ -65,9 +65,25 @@ class Recipe:
     @classmethod
     def from_input(cls):
         name = input('Recipe name: ')
-        category = input('Category name: ')
+        meal_categories = ['Breakfast', 'Appetizer', 'Soup', 'Lunch', 'Cake', 'Dessert', 'Supper', 'Drink', 'Shake', 'Smoothie', 'Snack']
+        print('Available meal categories (you can pick multiple): ')
+        print(", ".join(meal_categories))
+
+        categories = []
+        print("Enter meal tags one by one. Type 'done' when finished.")
+        while True:
+            category = input("Meal category (or 'done'): ").capitalize()
+            if category.lower() == 'done':
+                break
+            if category in meal_categories:
+                if category not in categories:
+                    categories.append(category)
+                else:
+                    print('Category already added')
+            else:
+                print('Invalid category. Try again')
+        
         ingredients = []
-    
         print("\nEnter ingredients one by one. Type 'done' when finished.")
         while True:
             ingredient = input("Ingredient name (or 'done'): ").strip().lower()
@@ -98,7 +114,7 @@ class Recipe:
         cuisine = input("Cuisine (e.g. 'Italian', 'Japanese'): ")
         author = input("Author name: ")
     
-        return cls(name, category, ingredients, instructions,
+        return cls(name, categories, ingredients, instructions,
                    prep_time, cook_time, servings, difficulty,
                    cuisine, author)
     
