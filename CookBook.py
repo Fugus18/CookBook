@@ -107,7 +107,7 @@ class Recipe:
         print('-'*30)
         
         ingredients = []
-        print("Enter ingredients one by one. Type 'done' when finished.")
+        print("Enter ingredients one by one. Type 'done' when finished.\n")
         while True:
             ingredient = input("Ingredient name (or 'done'): ").strip().lower()
             if ingredient == 'done':
@@ -116,7 +116,7 @@ class Recipe:
                 print(f"'{ingredient}' is not in the ingredient table.")
                 continue
             try:
-                amount = float(input(f"Amount in {ingredient_table[ingredient].unit}: "))
+                amount = float(input(f"Amount in {ingredient_table[ingredient].unit}: \n"))
                 ing_obj = IngredientInstance(ingredient, amount, ingredient_table[ingredient])
                 ingredients.append(ing_obj)
             except ValueError:
@@ -124,7 +124,7 @@ class Recipe:
         print('-'*30)
     
         instructions = []
-        print("Enter instruction steps one by one. Type 'done' when finished.")
+        print("Enter instruction steps one by one. Type 'done' when finished.\n")
         while True:
             step = input("Step (or 'done'): ")
             if step.lower() == 'done':
@@ -135,9 +135,32 @@ class Recipe:
         prep_time = input("Prep time (in minutes): ")
         cook_time = input("Cook time (in minutes): ")
         servings = input("Number of servings: ")
-        difficulty = input("Difficulty (easy/medium/hard): ")
-        cuisine = input("Cuisine (e.g. 'Italian', 'Japanese'): ")
-        author = input("Author name: ")
+        
+        print('-'*30)
+        difficulties = ['Easy', 'Medium', 'Hard']
+        print('Available difficulties: ', ', '.join(difficulties))
+        while True:
+            difficulty = input("Difficulty: ").capitalize()
+            if difficulty in difficulties:
+                break
+            else:
+                print('Invalid difficulty. Try again')
+        
+        print('-'*30)        
+        cuisines = ['Italian', 'Japanese', 'Mexican', 'Polish', 'Indian', 'French', 'American', 'Thai']
+        print("Available cuisines (or press Enter to skip):", ", ".join(cuisines))
+        while True:
+            cuisine_input = input("\nSelect cuisine (or press Enter to skip): ").strip().capitalize()
+            if cuisine_input == "":
+                cuisine = "None"  # or you could use None without quotes
+                break
+            elif cuisine_input in cuisines:
+                cuisine = cuisine_input
+                break
+            else:
+                print("Invalid cuisine. Try again.")
+            
+        author = input("\nAuthor name: ")
     
         return cls(name, categories, diets, ingredients, instructions,
                    prep_time, cook_time, servings, difficulty,
