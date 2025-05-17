@@ -41,7 +41,7 @@ class Recipe:
         print(f"Author: {self.author}")
         print(f"Date Created: {self.date_created}")
         print(f"Difficulty: {self.difficulty}")
-        print(f"Cuisine: {self.cuisine}")
+        print(f"Cuisine: {self.cuisine if self.cuisine != 'None' else 'Not specified'}")
         print('-' * 30)
         print("Ingredients:")
         for item in self.get_ingredient_list():
@@ -116,7 +116,8 @@ class Recipe:
                 print(f"'{ingredient}' is not in the ingredient table.")
                 continue
             try:
-                amount = float(input(f"Amount in {ingredient_table[ingredient].unit}: \n"))
+                amount = float(input(f"Amount in {ingredient_table[ingredient].unit}: "))
+                print('\n')
                 ing_obj = IngredientInstance(ingredient, amount, ingredient_table[ingredient])
                 ingredients.append(ing_obj)
             except ValueError:
@@ -152,7 +153,7 @@ class Recipe:
         while True:
             cuisine_input = input("\nSelect cuisine (or press Enter to skip): ").strip().capitalize()
             if cuisine_input == "":
-                cuisine = "None"  # or you could use None without quotes
+                cuisine = "None"
                 break
             elif cuisine_input in cuisines:
                 cuisine = cuisine_input
