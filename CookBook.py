@@ -1,11 +1,12 @@
 from datetime import datetime
 
 class Recipe:
-    def __init__(self, name, categories, ingredients, instructions, 
+    def __init__(self, name, categories, diets, ingredients, instructions, 
                  prep_time, cook_time, servings, difficulty, 
                  cuisine, author, date_created = None):
         self.name = name
         self.categories = categories if categories else []
+        self.diets = diets if diets else []
         self.ingredients = ingredients if ingredients else []
         self.instructions = instructions # e.g., ["Step 1", "Step 2"]
         self.prep_time = prep_time
@@ -33,6 +34,7 @@ class Recipe:
         print(self.name.upper())
         print('=' * 30)
         print(f"Categories: {', '.join(self.categories)}")
+        print(f"Diet: {', '.join(self.diets)}")
         print(f"Prep time: {self.prep_time}")
         print(f"Cook time: {self.cook_time}")
         print(f"Servings: {self.servings}")
@@ -64,15 +66,16 @@ class Recipe:
     
     @classmethod
     def from_input(cls):
+        print('-'*30)
         name = input('Recipe name: ')
+        print('-'*30)
         meal_categories = ['Breakfast', 'Appetizer', 'Soup', 'Lunch', 'Cake', 'Dessert', 'Supper', 'Drink', 'Shake', 'Smoothie', 'Snack']
         print('Available meal categories (you can pick multiple): ')
         print(", ".join(meal_categories))
-
         categories = []
-        print("Enter meal tags one by one. Type 'done' when finished.")
+        print("\nEnter meal tags one by one. Type 'done' when finished.")
         while True:
-            category = input("Meal category (or 'done'): ").capitalize()
+            category = input("Meal category (or 'done'): ").strip().title()
             if category.lower() == 'done':
                 break
             if category in meal_categories:
@@ -83,8 +86,28 @@ class Recipe:
             else:
                 print('Invalid category. Try again')
         
+        diets_options = ['Vegan', 'Vegetarian', 'Gluten-Free', 
+                         'Dairy-Free', 'Nut-Free', 'Low-Carb', 'High-Protein']
+        print('-'*30)
+        print('Available diet restrictions (you can pick multiple): ')
+        print(", ".join(diets_options))
+        diets = []
+        print("\nEnter diet restrictions one by one. Type 'done' when finished.")
+        while True:
+            diet = input("Diet restriction (or 'done'): ").strip().title()
+            if diet.lower() == 'done':
+                break
+            if diet in diets_options:
+                if diet not in diets:
+                    diets.append(diet)
+                else:
+                    print('Diet restriction already added')
+            else:
+                print('Invalid diet restriction. Try again')
+        print('-'*30)
+        
         ingredients = []
-        print("\nEnter ingredients one by one. Type 'done' when finished.")
+        print("Enter ingredients one by one. Type 'done' when finished.")
         while True:
             ingredient = input("Ingredient name (or 'done'): ").strip().lower()
             if ingredient == 'done':
@@ -98,14 +121,16 @@ class Recipe:
                 ingredients.append(ing_obj)
             except ValueError:
                 print("Invalid amount. Try again.")
+        print('-'*30)
     
         instructions = []
-        print("\nEnter instruction steps one by one. Type 'done' when finished.")
+        print("Enter instruction steps one by one. Type 'done' when finished.")
         while True:
             step = input("Step (or 'done'): ")
             if step.lower() == 'done':
                 break
             instructions.append(step)
+        print('-'*30)
     
         prep_time = input("Prep time (in minutes): ")
         cook_time = input("Cook time (in minutes): ")
@@ -114,7 +139,7 @@ class Recipe:
         cuisine = input("Cuisine (e.g. 'Italian', 'Japanese'): ")
         author = input("Author name: ")
     
-        return cls(name, categories, ingredients, instructions,
+        return cls(name, categories, diets, ingredients, instructions,
                    prep_time, cook_time, servings, difficulty,
                    cuisine, author)
     
@@ -232,7 +257,7 @@ if __name__ == "__main__":
         print("2. View all recipes")
         print("3. Find a recipe")
         print("4. Remove a recipe")
-        print("5. Exit")
+        print("5. Exit\n")
 
         choice = input("Choose an option: ")
 
