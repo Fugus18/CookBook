@@ -1,4 +1,5 @@
 from recipe import Recipe
+import json
   
 class CookBook:
     def __init__(self):
@@ -46,3 +47,20 @@ class CookBook:
             print('-'*30)
             print(f"Recipe '{name}' not found in the cookbook")
             print('-'*30)
+            
+    def save_to_file(self, filename):
+        data = [recipe.to_dict() for recipe in self.recipes]
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4)
+        print(f"Cookbook saved to '{filename}'")
+
+    def load_from_file(self, filename):
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            self.recipes = [Recipe.from_dict(r) for r in data]
+            print(f"Cookbook loaded from '{filename}'")
+        except FileNotFoundError:
+            print(f"No such file: '{filename}'")
+        except json.JSONDecodeError:
+            print(f"Invalid JSON format in file: '{filename}'")

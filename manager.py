@@ -20,6 +20,14 @@ def main():
         name = input("Enter the recipe name to remove: ").strip()
         cookbook_obj.remove_recipe(name)
         
+    def save_cookbook():
+        filename = input("Enter filename to save: ").strip()+'.json'
+        cookbook_obj.save_to_file(filename)
+
+    def load_cookbook():
+        filename = input("Enter filename to load: ").strip()+'.json'
+        cookbook_obj.load_from_file(filename)
+        
     def exit_program():
         print('-'*30)
         print("Goodbye!")
@@ -30,8 +38,10 @@ def main():
     "2": view_recipes,
     "3": find_recipe,
     "4": remove_recipe,
-    "5": exit_program,
-        }
+    "5": save_cookbook,
+    "6": load_cookbook,
+    "7": exit_program,
+}
 
     while True:
         print("\n=== Recipe Manager ===")
@@ -39,12 +49,14 @@ def main():
         print("2. View all recipes")
         print("3. Find a recipe")
         print("4. Remove a recipe")
-        print("5. Exit\n")
+        print("5. Save cookbook to file")
+        print("6. Load cookbook from file")
+        print("7. Exit\n")
     
         choice = input("Choose an option: ").strip()
         action = actions.get(choice)
         if action:
-            if choice == "5":
+            if choice == "7":
                 action()
                 break
             else:

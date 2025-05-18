@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Cake",
+        "categories": [
+            "Lunch"
+        ],
+        "diets": [
+            "Vegan"
+        ],
+        "ingredients": [
+            {
+                "name": "flour",
+                "amount": 10.0,
+                "ingredient_data": {
+                    "unit": "g",
+                    "carbs": 7.6,
+                    "protein": 1.0,
+                    "fat": 0.1,
+                    "base_amount": 10
+                }
+            }
+        ],
+        "instructions": [
+            "add it"
+        ],
+        "prep_time": "10",
+        "cook_time": "20",
+        "servings": "4",
+        "difficulty": "Easy",
+        "cuisine": "None",
+        "author": "JF",
+        "date_created": "2025-05-18"
+    }
+]

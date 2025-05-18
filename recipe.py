@@ -63,7 +63,40 @@ class Recipe:
     def get_instruction_steps(self):
         return [f"{i+1}. {step}" for i, step in enumerate(self.instructions)]
 
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "categories": self.categories,
+            "diets": self.diets,
+            "ingredients": [ingredient.to_dict() for ingredient in self.ingredients],
+            "instructions": self.instructions,
+            "prep_time": self.prep_time,
+            "cook_time": self.cook_time,
+            "servings": self.servings,
+            "difficulty": self.difficulty,
+            "cuisine": self.cuisine,
+            "author": self.author,
+            "date_created": self.date_created
+        }
     
+    
+    @classmethod
+    def from_dict(cls, data):
+        ingredients = [IngredientInstance.from_dict(i) for i in data["ingredients"]]
+        return cls(
+            data["name"],
+            data["categories"],
+            data["diets"],
+            ingredients,
+            data["instructions"],
+            data["prep_time"],
+            data["cook_time"],
+            data["servings"],
+            data["difficulty"],
+            data["cuisine"],
+            data["author"],
+            data.get("date_created")
+        )
     
     @classmethod
     def from_input(cls):
