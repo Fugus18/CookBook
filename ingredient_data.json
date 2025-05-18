@@ -1,0 +1,22 @@
+{
+  "egg":             { "unit": "item", "carbs": 0.6,  "protein": 6.0,  "fat": 5.0,  "base_amount": 1 },
+  "flour":           { "unit": "g",    "carbs": 7.6,  "protein": 1.0,  "fat": 0.1,  "base_amount": 10 },
+  "sugar":           { "unit": "g",    "carbs": 10.0, "protein": 0.0,  "fat": 0.0,  "base_amount": 10 },
+  "butter":          { "unit": "g",    "carbs": 0.01, "protein": 0.09, "fat": 8.1,  "base_amount": 10 },
+  "milk":            { "unit": "ml",   "carbs": 0.47, "protein": 0.33, "fat": 0.39, "base_amount": 10 },
+  "chicken breast":  { "unit": "g",    "carbs": 0.0,  "protein": 3.1,  "fat": 0.36, "base_amount": 10 },
+  "carrot":          { "unit": "g",    "carbs": 0.96, "protein": 0.09, "fat": 0.02, "base_amount": 10 },
+  "tomato":          { "unit": "g",    "carbs": 0.39, "protein": 0.09, "fat": 0.02, "base_amount": 10 },
+  "rice":            { "unit": "g",    "carbs": 2.8,  "protein": 0.27, "fat": 0.03, "base_amount": 10 },
+  "potato":          { "unit": "g",    "carbs": 1.75, "protein": 0.2,  "fat": 0.01, "base_amount": 10 },
+  "spinach":         { "unit": "g",    "carbs": 0.36, "protein": 0.29, "fat": 0.04, "base_amount": 10 },
+  "cheddar cheese":  { "unit": "g",    "carbs": 0.13, "protein": 2.5,  "fat": 3.3,  "base_amount": 10 },
+  "banana":          { "unit": "g",    "carbs": 2.28, "protein": 0.13, "fat": 0.03, "base_amount": 10 },
+  "avocado":         { "unit": "g",    "carbs": 0.85, "protein": 0.2,  "fat": 1.5,  "base_amount": 10 },
+  "olive oil":       { "unit": "g",    "carbs": 0.0,  "protein": 0.0,  "fat": 10.0, "base_amount": 10 },
+  "onion":           { "unit": "g",    "carbs": 0.93, "protein": 0.09, "fat": 0.01, "base_amount": 10 },
+  "garlic":          { "unit": "g",    "carbs": 3.31, "protein": 0.64, "fat": 0.05, "base_amount": 10 },
+  "apple":           { "unit": "g",    "carbs": 1.14, "protein": 0.05, "fat": 0.03, "base_amount": 10 },
+  "salmon":          { "unit": "g",    "carbs": 0.0,  "protein": 2.5,  "fat": 1.4,  "base_amount": 10 },
+  "beef steak":      { "unit": "g",    "carbs": 0.0,  "protein": 2.6,  "fat": 2.0,  "base_amount": 10 }
+}

@@ -1,5 +1,8 @@
 from datetime import datetime
-from ingredient import IngredientInstance, ingredient_table
+from ingredient import IngredientInstance, load_ingredient_table
+
+ingredient_table = load_ingredient_table()
+
 
 class Recipe:
     def __init__(self, name, categories, diets, ingredients, instructions, 
