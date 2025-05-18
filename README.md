@@ -25,13 +25,10 @@ A simple Python OOP project for managing recipes using a `Recipe` and `CookBook`
 Recipe class: Stores all data for a single recipe\
 CookBook class: Stores a collection of recipes\
 IngredientData: Nutritional info per 10g or per item\
-IngredientInstance: Combines name, amount, and nutrition\
+IngredientInstance: Combines name, amount, and nutrition
 
 ✅ To-Do\
-Save/load recipes to/from file\
-Add a meal planner feature - saving plan to txt or pdf or calendar\
-Export to PDF or share\
-Meal-drawing machine for meal type/cuisine\
-Filtering for low fat/high protein meals\
-Favorites list
-Grocery list generator: removing the duplicates, grouping by category\
+- Favorite meals list
+- Meals filtering (category, diet, total_time, difficulty, cuisine, author
+- Meal-drawing machine for filtered meal
+- Grocery list generator for specified meals
