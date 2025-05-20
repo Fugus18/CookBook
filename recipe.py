@@ -110,10 +110,10 @@ class Recipe:
         print('Available meal categories (you can pick multiple): ')
         print(", ".join(meal_categories))
         categories = []
-        print("\nEnter meal tags one by one. Type 'done' when finished.")
+        print("\nEnter meal tags one by one (or press Enter to finish).")
         while True:
-            category = input("Meal category (or 'done'): ").strip().title()
-            if category.lower() == 'done':
+            category = input("Meal category: ").strip().title()
+            if category.lower() == '':
                 break
             if category in meal_categories:
                 if category not in categories:
@@ -129,10 +129,10 @@ class Recipe:
         print('Available diet restrictions (you can pick multiple): ')
         print(", ".join(diets_options))
         diets = []
-        print("\nEnter diet restrictions one by one. Type 'done' when finished.")
+        print("\nEnter diet restrictions one by one (or press Enter to finish).")
         while True:
-            diet = input("Diet restriction (or 'done'): ").strip().title()
-            if diet.lower() == 'done':
+            diet = input("Diet restriction: ").strip().title()
+            if diet.lower() == '':
                 break
             if diet in diets_options:
                 if diet not in diets:
@@ -144,10 +144,10 @@ class Recipe:
         print('-'*30)
         
         ingredients = []
-        print("Enter ingredients one by one. Type 'done' when finished.\n")
+        print("Enter ingredients one by one (or press Enter to finish).\n")
         while True:
-            ingredient = input("Ingredient name (or 'done'): ").strip().lower()
-            if ingredient == 'done':
+            ingredient = input("Ingredient name: ").strip().lower()
+            if ingredient == '':
                 break
             if ingredient not in ingredient_table:
                 print(f"'{ingredient}' is not in the ingredient table.")
@@ -162,10 +162,10 @@ class Recipe:
         print('-'*30)
     
         instructions = []
-        print("Enter instruction steps one by one. Type 'done' when finished.\n")
+        print("Enter instruction steps one by one (or press Enter to finish).\n")
         while True:
-            step = input("Step (or 'done'): ")
-            if step.lower() == 'done':
+            step = input("Step: ")
+            if step.lower() == '':
                 break
             instructions.append(step)
         print('-'*30)
