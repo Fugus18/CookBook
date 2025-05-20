@@ -28,6 +28,17 @@ def main():
         filename = input("Enter filename to load: ").strip()+'.json'
         cookbook_obj.load_from_file(filename)
         
+    def mark_favorite():
+        name = input("Enter the recipe name to mark as favorite: ").strip()
+        cookbook_obj.mark_favorite(name)
+    
+    def view_favorites():
+        cookbook_obj.view_favorites()
+    
+    def unmark_favorite():
+        name = input("Enter the recipe name to unmark as favorite: ").strip()
+        cookbook_obj.unmark_favorite(name)
+    
     def exit_program():
         print('-'*30)
         print("Goodbye!")
@@ -40,23 +51,32 @@ def main():
     "4": remove_recipe,
     "5": save_cookbook,
     "6": load_cookbook,
-    "7": exit_program,
+    "7": mark_favorite,
+    "8": view_favorites,
+    "9": unmark_favorite,
+    "10": exit_program,
 }
 
     while True:
         print("\n=== Recipe Manager ===")
-        print("1. Add a recipe")
-        print("2. View all recipes")
-        print("3. Find a recipe")
-        print("4. Remove a recipe")
-        print("5. Save cookbook to file")
-        print("6. Load cookbook from file")
-        print("7. Exit\n")
+        print("Recipe")
+        print(" 1. Add a recipe")
+        print(" 2. View all recipes")
+        print(" 3. Find a recipe")
+        print(" 4. Remove a recipe")
+        print("Cookbook")
+        print(" 5. Save cookbook to file")
+        print(" 6. Load cookbook from file")
+        print("Favorites")
+        print(" 7. Mark recipe as favorite")
+        print(" 8. View favorite recipes")
+        print(" 9. Remove recipe from favorites")
+        print(" 10. Exit\n")
     
         choice = input("Choose an option: ").strip()
         action = actions.get(choice)
         if action:
-            if choice == "7":
+            if choice == "10":
                 action()
                 break
             else:
