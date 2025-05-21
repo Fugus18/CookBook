@@ -5,6 +5,10 @@ ingredient_table = load_ingredient_table()
 
 
 class Recipe:
+    
+    meal_categories = ['Breakfast', 'Appetizer', 'Soup', 'Lunch', 'Cake', 'Dessert', 'Supper', 'Drink', 'Shake', 'Smoothie', 'Snack']
+
+    
     def __init__(self, name, categories, diets, ingredients, instructions, 
                  prep_time, cook_time, servings, difficulty, 
                  cuisine, author, date_created = None):
@@ -106,16 +110,15 @@ class Recipe:
         print('-'*30)
         name = input('Recipe name: ')
         print('-'*30)
-        meal_categories = ['Breakfast', 'Appetizer', 'Soup', 'Lunch', 'Cake', 'Dessert', 'Supper', 'Drink', 'Shake', 'Smoothie', 'Snack']
         print('Available meal categories (you can pick multiple): ')
-        print(", ".join(meal_categories))
+        print(", ".join(cls.meal_categories))
         categories = []
         print("\nEnter meal tags one by one (or press Enter to finish).")
         while True:
             category = input("Meal category: ").strip().title()
             if category.lower() == '':
                 break
-            if category in meal_categories:
+            if category in cls.meal_categories:
                 if category not in categories:
                     categories.append(category)
                 else:

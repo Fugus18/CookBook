@@ -1,5 +1,6 @@
 from recipe import Recipe
 import json
+import random
   
 class CookBook:
     def __init__(self):
@@ -115,3 +116,30 @@ class CookBook:
             print('-'*30)
             print(f"Recipe '{name}' is not in favorites")
             print('-'*30)
+            
+    def draw_random_meal(self):
+        print('-' * 30)
+        print("Available Meal Categories:")
+        print(", ".join(Recipe.meal_categories))
+        print('-' * 30)
+        category = input("Enter the category to draw from: ").strip().lower()
+    
+        filtered = [
+            r for r in self.recipes
+            if any(c.lower() == category for c in r.categories)
+        ]
+    
+        if not filtered:
+            print('-' * 30)
+            print(f"No meals found in category '{category.capitalize()}'.")
+            print('-' * 30)
+            return
+    
+        selected = random.choice(filtered)
+        print('-' * 30)
+        print(f"🎲 You got: {selected.name}")
+        print('-' * 30)
+    
+        show = input("Do you want to see the full recipe? (y/n): ").strip().lower()
+        if show == 'y':
+            selected.display()

@@ -1,7 +1,6 @@
 from cookbook import CookBook
 from recipe import Recipe
 
-
 def main():
     cookbook_obj = CookBook()
 
@@ -39,6 +38,9 @@ def main():
         name = input("Enter the recipe name to unmark as favorite: ").strip()
         cookbook_obj.unmark_favorite(name)
     
+    def draw_random_meal():
+        cookbook_obj.draw_random_meal()
+        
     def exit_program():
         print('-'*30)
         print("Goodbye!")
@@ -54,7 +56,8 @@ def main():
     "7": mark_favorite,
     "8": view_favorites,
     "9": unmark_favorite,
-    "10": exit_program,
+    "10": draw_random_meal,
+    "11": exit_program,
 }
 
     while True:
@@ -71,12 +74,14 @@ def main():
         print(" 7. Mark recipe as favorite")
         print(" 8. View favorite recipes")
         print(" 9. Remove recipe from favorites")
-        print(" 10. Exit\n")
+        print("Fun")
+        print(" 10. Draw a random meal from a category")
+        print("11. Exit\n")
     
         choice = input("Choose an option: ").strip()
         action = actions.get(choice)
         if action:
-            if choice == "10":
+            if choice == "11":
                 action()
                 break
             else:
