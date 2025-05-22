@@ -24,8 +24,7 @@
             "instructions": [
                 "add it"
             ],
-            "prep_time": "10",
-            "cook_time": "20",
+            "total_time": "30",
             "servings": "4",
             "difficulty": "Easy",
             "cuisine": "None",

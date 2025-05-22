@@ -29,4 +29,3 @@ IngredientInstance: Combines name, amount, and nutrition
 
 ✅ To-Do\
 - Meals filtering (category, diet, total_time, difficulty, cuisine, author
-- Grocery list generator for specified meals

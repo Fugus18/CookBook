@@ -1,7 +1,9 @@
 from recipe import Recipe
 import json
 import random
-  
+from collections import defaultdict
+ 
+ 
 class CookBook:
     def __init__(self):
         self.recipes = []
@@ -143,3 +145,45 @@ class CookBook:
         show = input("Do you want to see the full recipe? (y/n): ").strip().lower()
         if show == 'y':
             selected.display()
+            
+
+    def generate_grocery_list(self):
+        grocery_list = defaultdict(float)
+    
+        while True:
+            name = input("Enter recipe name to add to grocery list (or press Enter to finish): ").strip()
+            if not name:
+                break
+    
+            recipe = next((r for r in self.recipes if r.name.lower() == name.lower()), None)
+            if not recipe:
+                print(f"Recipe '{name}' not found.")
+                continue
+    
+            for item in recipe.ingredients:
+                # Handle dict from JSON
+                if isinstance(item, dict):
+                    ingredient_name = item.get("name", "").strip().lower()
+                    amount = float(item.get("amount", 0))
+                    unit = item.get("ingredient_data", {}).get("unit", "")
+                # Handle IngredientInstance object
+                else:
+                    ingredient_name = item.name.strip().lower()
+                    amount = float(item.amount)
+                    unit = item.ingredient_data.unit
+    
+                key = f"{ingredient_name} ({unit})" if unit else ingredient_name
+                grocery_list[key] += amount
+    
+        if not grocery_list:
+            print('-' * 30)
+            print("No items in the grocery list.")
+            print('-' * 30)
+            return
+    
+        print('-' * 30)
+        print("🛒 Grocery List")
+        print('-' * 30)
+        for item, qty in grocery_list.items():
+            print(f"{item}: {qty}")
+        print('-' * 30)

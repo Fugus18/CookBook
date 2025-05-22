@@ -10,15 +10,14 @@ class Recipe:
 
     
     def __init__(self, name, categories, diets, ingredients, instructions, 
-                 prep_time, cook_time, servings, difficulty, 
+                 total_time, servings, difficulty, 
                  cuisine, author, date_created = None):
         self.name = name
         self.categories = categories if categories else []
         self.diets = diets if diets else []
         self.ingredients = ingredients if ingredients else []
         self.instructions = instructions # e.g., ["Step 1", "Step 2"]
-        self.prep_time = prep_time
-        self.cook_time = cook_time
+        self.total_time = total_time
         self.servings = servings
         self.difficulty = difficulty
         self.cuisine = cuisine
@@ -43,8 +42,7 @@ class Recipe:
         print('=' * 30)
         print(f"Categories: {', '.join(self.categories)}")
         print(f"Diet: {', '.join(self.diets)}")
-        print(f"Prep time: {self.prep_time}")
-        print(f"Cook time: {self.cook_time}")
+        print(f"Prep time: {self.total_time}")
         print(f"Servings: {self.servings}")
         print(f"Author: {self.author}")
         print(f"Date Created: {self.date_created}")
@@ -77,8 +75,7 @@ class Recipe:
             "diets": self.diets,
             "ingredients": [ingredient.to_dict() for ingredient in self.ingredients],
             "instructions": self.instructions,
-            "prep_time": self.prep_time,
-            "cook_time": self.cook_time,
+            "total_time": self.total_time,
             "servings": self.servings,
             "difficulty": self.difficulty,
             "cuisine": self.cuisine,
@@ -96,8 +93,7 @@ class Recipe:
             data["diets"],
             ingredients,
             data["instructions"],
-            data["prep_time"],
-            data["cook_time"],
+            data["total_time"],
             data["servings"],
             data["difficulty"],
             data["cuisine"],
@@ -173,8 +169,7 @@ class Recipe:
             instructions.append(step)
         print('-'*30)
     
-        prep_time = input("Prep time (in minutes): ")
-        cook_time = input("Cook time (in minutes): ")
+        total_time = input("Prep and cook time (in minutes): ")
         servings = input("Number of servings: ")
         
         print('-'*30)
@@ -204,5 +199,5 @@ class Recipe:
         author = input("\nAuthor name: ")
     
         return cls(name, categories, diets, ingredients, instructions,
-                   prep_time, cook_time, servings, difficulty,
+                   total_time, servings, difficulty,
                    cuisine, author)
