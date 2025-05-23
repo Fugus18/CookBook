@@ -26,6 +26,3 @@ Recipe class: Stores all data for a single recipe\
 CookBook class: Stores a collection of recipes\
 IngredientData: Nutritional info per 10g or per item\
 IngredientInstance: Combines name, amount, and nutrition
-
-✅ To-Do\
-- Meals filtering (category, diet, total_time, difficulty, cuisine, author

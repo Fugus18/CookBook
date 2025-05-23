@@ -187,3 +187,39 @@ class CookBook:
         for item, qty in grocery_list.items():
             print(f"{item}: {qty}")
         print('-' * 30)
+
+    def filter_recipes(self, criteria):
+        results = self.recipes
+    
+        if "category" in criteria:
+            results = [r for r in results if any(
+                c.lower() == criteria["category"].lower() for c in r.categories)]
+    
+        if "ingredient" in criteria:
+            results = [r for r in results if any(
+                criteria["ingredient"].lower() in ing.name.lower() for ing in r.ingredients)]
+    
+        if "total_time" in criteria:
+            results = [r for r in results if (
+                r.total_time <= criteria["total_time"])]
+    
+        if "difficulty" in criteria:
+            results = [r for r in results if r.difficulty.lower() == criteria["difficulty"].lower()]
+    
+        if "cuisine" in criteria:
+            results = [r for r in results if r.cuisine.lower() == criteria["cuisine"].lower()]
+    
+        if "author" in criteria:
+            results = [r for r in results if r.author.lower() == criteria["author"].lower()]
+    
+        if results:
+            print('-' * 30)
+            print("Filtered Recipes:")
+            print('-' * 30)
+            for r in results:
+                print(f"- {r.name}")
+            print('-' * 30)
+        else:
+            print('-' * 30)
+            print("No recipes matched the filters.")
+            print('-' * 30)

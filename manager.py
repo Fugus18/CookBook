@@ -44,7 +44,30 @@ def main():
     def generate_grocery_list():
         cookbook_obj.generate_grocery_list()
 
+    def filter_recipes():
+        print("\nEnter filter criteria. Press Enter to skip a criterion.\n")
+        category = input("Filter by category: ").strip()
+        ingredient = input("Filter by ingredient: ").strip()
+        try:
+            total_time = input("Max total time in minutes: ").strip()
+            total_time = int(total_time) if total_time else None
+        except ValueError:
+            total_time = None
+        difficulty = input("Filter by difficulty: ").strip()
+        cuisine = input("Filter by cuisine: ").strip()
+        author = input("Filter by author: ").strip()
+    
+        criteria = {}
+        if category: criteria["category"] = category
+        if ingredient: criteria["ingredient"] = ingredient
+        if total_time is not None: criteria["total_time"] = total_time
+        if difficulty: criteria["difficulty"] = difficulty
+        if cuisine: criteria["cuisine"] = cuisine
+        if author: criteria["author"] = author
+    
+        cookbook_obj.filter_recipes(criteria)
         
+
     def exit_program():
         print('-'*30)
         print("Goodbye!")
@@ -62,7 +85,8 @@ def main():
     "9": unmark_favorite,
     "10": draw_random_meal,
     "11": generate_grocery_list,
-    "12": exit_program,
+    "12": filter_recipes,
+    "13": exit_program,
 }
 
     while True:
@@ -82,13 +106,15 @@ def main():
         print("Other")
         print(" 10. Draw a random recipe from a category")
         print(" 11. Generate grocery list")
+        print(" 12. Filter for specified variable")
 
-        print("12. Exit\n")
+
+        print("13. Exit\n")
     
         choice = input("Choose an option: ").strip()
         action = actions.get(choice)
         if action:
-            if choice == "12":
+            if choice == "13":
                 action()
                 break
             else:

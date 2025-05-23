@@ -93,7 +93,7 @@ class Recipe:
             data["diets"],
             ingredients,
             data["instructions"],
-            data["total_time"],
+            int(data["total_time"]),
             data["servings"],
             data["difficulty"],
             data["cuisine"],
@@ -169,7 +169,14 @@ class Recipe:
             instructions.append(step)
         print('-'*30)
     
-        total_time = input("Prep and cook time (in minutes): ")
+        while True:
+            try:
+                total_time = int(input("Prep and cook time (in minutes): "))
+                break
+            except ValueError:
+                print("Please enter a valid number.")
+        
+        
         servings = input("Number of servings: ")
         
         print('-'*30)
