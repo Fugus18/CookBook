@@ -213,9 +213,9 @@ class CookBook:
             results = [r for r in results if r.author.lower() == criteria["author"].lower()]
     
         if results:
-            print('-' * 30)
+            print('-' * 31)
             print("Filtered Recipes:")
-            print('-' * 30)
+            print('-' * 31)
             for r in results:
                 print(f"- {r.name}")
             print('-' * 30)
