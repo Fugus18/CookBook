@@ -1,28 +1,36 @@
-🥘 Recipe Manager
+# 🥘 CookBook
 
-A simple Python OOP project for managing recipes using a `Recipe` and `CookBook` class structure.
+A simple and extendable Python CLI app for managing recipes and tracking nutrition.
 
-💡 Features
+## 💡 Features
 
-- Add, display, and remove recipes
-- Categorize meals by type and cuisine
-- Input and store ingredients with nutrition data
-- Calculate calories automatically
-- Save/load recipes for later use
+- Add, view, and remove recipes
+- Store ingredients with nutrition data
+- Auto-calculate calories, protein, carbs, and fat
+- Mark recipes as favorites
+- Filter and search recipes by various criteria
+- Draw a random meal from a category
+- Generate a grocery list
+- Save/load recipes from JSON files
+- Support for custom ingredients
 
-🚀 Getting Started
+## 🚀 Getting Started
 
-1. Clone the repository:\
-	```
-	git clone https://github.com/Fugus18/CookBook.git
-	cd CookBook
-	```
-2. Run the main script:
-   python main.py
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/JakubFlak/CookBook.git
+   cd CookBook
+   ```
+2. Run the app:
+   ```
+   python manager.py
+   ```
 3. Follow the prompts to input and manage recipes.
 
-📂 Structure\
-Recipe class: Stores all data for a single recipe\
-CookBook class: Stores a collection of recipes\
-IngredientData: Nutritional info per 10g or per item\
-IngredientInstance: Combines name, amount, and nutrition
+## 📂 Structure
+- manager.py – CLI interface
+- cookbook.py – CookBook logic
+- recipe.py – Recipe object
+- ingredient.py – Ingredient data and nutrition logic
+- ingredient_data.json – Nutrition info for known ingredients
+- witam.json – Sample saved cookbook
