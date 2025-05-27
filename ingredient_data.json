@@ -1,22 +1,590 @@
 {
-  "egg":             { "unit": "item", "carbs": 0.6,  "protein": 6.0,  "fat": 5.0,  "base_amount": 1 },
-  "flour":           { "unit": "g",    "carbs": 7.6,  "protein": 1.0,  "fat": 0.1,  "base_amount": 10 },
-  "sugar":           { "unit": "g",    "carbs": 10.0, "protein": 0.0,  "fat": 0.0,  "base_amount": 10 },
-  "butter":          { "unit": "g",    "carbs": 0.01, "protein": 0.09, "fat": 8.1,  "base_amount": 10 },
-  "milk":            { "unit": "ml",   "carbs": 0.47, "protein": 0.33, "fat": 0.39, "base_amount": 10 },
-  "chicken breast":  { "unit": "g",    "carbs": 0.0,  "protein": 3.1,  "fat": 0.36, "base_amount": 10 },
-  "carrot":          { "unit": "g",    "carbs": 0.96, "protein": 0.09, "fat": 0.02, "base_amount": 10 },
-  "tomato":          { "unit": "g",    "carbs": 0.39, "protein": 0.09, "fat": 0.02, "base_amount": 10 },
-  "rice":            { "unit": "g",    "carbs": 2.8,  "protein": 0.27, "fat": 0.03, "base_amount": 10 },
-  "potato":          { "unit": "g",    "carbs": 1.75, "protein": 0.2,  "fat": 0.01, "base_amount": 10 },
-  "spinach":         { "unit": "g",    "carbs": 0.36, "protein": 0.29, "fat": 0.04, "base_amount": 10 },
-  "cheddar cheese":  { "unit": "g",    "carbs": 0.13, "protein": 2.5,  "fat": 3.3,  "base_amount": 10 },
-  "banana":          { "unit": "g",    "carbs": 2.28, "protein": 0.13, "fat": 0.03, "base_amount": 10 },
-  "avocado":         { "unit": "g",    "carbs": 0.85, "protein": 0.2,  "fat": 1.5,  "base_amount": 10 },
-  "olive oil":       { "unit": "g",    "carbs": 0.0,  "protein": 0.0,  "fat": 10.0, "base_amount": 10 },
-  "onion":           { "unit": "g",    "carbs": 0.93, "protein": 0.09, "fat": 0.01, "base_amount": 10 },
-  "garlic":          { "unit": "g",    "carbs": 3.31, "protein": 0.64, "fat": 0.05, "base_amount": 10 },
-  "apple":           { "unit": "g",    "carbs": 1.14, "protein": 0.05, "fat": 0.03, "base_amount": 10 },
-  "salmon":          { "unit": "g",    "carbs": 0.0,  "protein": 2.5,  "fat": 1.4,  "base_amount": 10 },
-  "beef steak":      { "unit": "g",    "carbs": 0.0,  "protein": 2.6,  "fat": 2.0,  "base_amount": 10 }
+  "egg": {
+    "unit": "item",
+    "carbs": 0.6,
+    "protein": 6.0,
+    "fat": 5.0,
+    "base_amount": 1
+  },
+  "flour": {
+    "unit": "g",
+    "carbs": 7.6,
+    "protein": 1.0,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "sugar": {
+    "unit": "g",
+    "carbs": 10.0,
+    "protein": 0.0,
+    "fat": 0.0,
+    "base_amount": 10
+  },
+  "butter": {
+    "unit": "g",
+    "carbs": 0.0,
+    "protein": 0.1,
+    "fat": 8.1,
+    "base_amount": 10
+  },
+  "milk": {
+    "unit": "ml",
+    "carbs": 0.47,
+    "protein": 0.33,
+    "fat": 0.39,
+    "base_amount": 10
+  },
+  "chicken breast": {
+    "unit": "g",
+    "carbs": 0.0,
+    "protein": 3.1,
+    "fat": 0.36,
+    "base_amount": 10
+  },
+  "carrot": {
+    "unit": "g",
+    "carbs": 0.96,
+    "protein": 0.09,
+    "fat": 0.02,
+    "base_amount": 10
+  },
+  "tomato": {
+    "unit": "g",
+    "carbs": 0.39,
+    "protein": 0.09,
+    "fat": 0.02,
+    "base_amount": 10
+  },
+  "rice": {
+    "unit": "g",
+    "carbs": 2.5,
+    "protein": 0.27,
+    "fat": 0.03,
+    "base_amount": 10
+  },
+  "potato": {
+    "unit": "g",
+    "carbs": 1.75,
+    "protein": 0.2,
+    "fat": 0.01,
+    "base_amount": 10
+  },
+  "spinach": {
+    "unit": "g",
+    "carbs": 0.36,
+    "protein": 0.29,
+    "fat": 0.04,
+    "base_amount": 10
+  },
+  "cheese": {
+    "unit": "g",
+    "carbs": 0.13,
+    "protein": 2.5,
+    "fat": 3.3,
+    "base_amount": 10
+  },
+  "banana": {
+    "unit": "g",
+    "carbs": 2.28,
+    "protein": 0.13,
+    "fat": 0.03,
+    "base_amount": 10
+  },
+  "avocado": {
+    "unit": "g",
+    "carbs": 0.85,
+    "protein": 0.2,
+    "fat": 1.5,
+    "base_amount": 10
+  },
+  "olive oil": {
+    "unit": "g",
+    "carbs": 0.0,
+    "protein": 0.0,
+    "fat": 10.0,
+    "base_amount": 10
+  },
+  "onion": {
+    "unit": "g",
+    "carbs": 0.93,
+    "protein": 0.09,
+    "fat": 0.01,
+    "base_amount": 10
+  },
+  "garlic": {
+    "unit": "g",
+    "carbs": 3.31,
+    "protein": 0.64,
+    "fat": 0.05,
+    "base_amount": 10
+  },
+  "apple": {
+    "unit": "g",
+    "carbs": 1.2,
+    "protein": 0.05,
+    "fat": 0.03,
+    "base_amount": 10
+  },
+  "salmon": {
+    "unit": "g",
+    "carbs": 0.0,
+    "protein": 2.5,
+    "fat": 1.4,
+    "base_amount": 10
+  },
+  "beef steak": {
+    "unit": "g",
+    "carbs": 0.0,
+    "protein": 2.6,
+    "fat": 2.0,
+    "base_amount": 10
+  },
+  "almonds": {
+    "unit": "g",
+    "carbs": 2.2,
+    "protein": 2.1,
+    "fat": 5.0,
+    "base_amount": 10
+  },
+  "walnuts": {
+    "unit": "g",
+    "carbs": 1.9,
+    "protein": 1.5,
+    "fat": 6.5,
+    "base_amount": 10
+  },
+  "peanuts": {
+    "unit": "g",
+    "carbs": 1.6,
+    "protein": 2.6,
+    "fat": 4.9,
+    "base_amount": 10
+  },
+  "cashews": {
+    "unit": "g",
+    "carbs": 3.0,
+    "protein": 1.8,
+    "fat": 4.4,
+    "base_amount": 10
+  },
+  "hazelnuts": {
+    "unit": "g",
+    "carbs": 1.7,
+    "protein": 1.5,
+    "fat": 6.0,
+    "base_amount": 10
+  },
+  "sunflower seeds": {
+    "unit": "g",
+    "carbs": 2.0,
+    "protein": 2.1,
+    "fat": 5.1,
+    "base_amount": 10
+  },
+  "chia seeds": {
+    "unit": "g",
+    "carbs": 4.2,
+    "protein": 1.7,
+    "fat": 3.1,
+    "base_amount": 10
+  },
+  "flaxseeds": {
+    "unit": "g",
+    "carbs": 2.9,
+    "protein": 1.8,
+    "fat": 4.3,
+    "base_amount": 10
+  },
+  "pumpkin seeds": {
+    "unit": "g",
+    "carbs": 1.5,
+    "protein": 3.0,
+    "fat": 4.5,
+    "base_amount": 10
+  },
+  "sesame seeds": {
+    "unit": "g",
+    "carbs": 2.3,
+    "protein": 1.7,
+    "fat": 5.0,
+    "base_amount": 10
+  },
+  "quinoa": {
+    "unit": "g",
+    "carbs": 2.1,
+    "protein": 1.2,
+    "fat": 0.4,
+    "base_amount": 10
+  },
+  "oats": {
+    "unit": "g",
+    "carbs": 6.7,
+    "protein": 1.3,
+    "fat": 0.7,
+    "base_amount": 10
+  },
+  "barley": {
+    "unit": "g",
+    "carbs": 7.3,
+    "protein": 1.2,
+    "fat": 0.3,
+    "base_amount": 10
+  },
+  "buckwheat": {
+    "unit": "g",
+    "carbs": 7.1,
+    "protein": 1.3,
+    "fat": 0.3,
+    "base_amount": 10
+  },
+  "brown rice": {
+    "unit": "g",
+    "carbs": 7.5,
+    "protein": 0.8,
+    "fat": 0.3,
+    "base_amount": 10
+  },
+  "white rice": {
+    "unit": "g",
+    "carbs": 7.9,
+    "protein": 0.7,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "lentils": {
+    "unit": "g",
+    "carbs": 6.3,
+    "protein": 2.5,
+    "fat": 0.2,
+    "base_amount": 10
+  },
+  "chickpeas": {
+    "unit": "g",
+    "carbs": 6.1,
+    "protein": 2.0,
+    "fat": 0.6,
+    "base_amount": 10
+  },
+  "black beans": {
+    "unit": "g",
+    "carbs": 6.0,
+    "protein": 2.1,
+    "fat": 0.2,
+    "base_amount": 10
+  },
+  "kidney beans": {
+    "unit": "g",
+    "carbs": 6.0,
+    "protein": 2.4,
+    "fat": 0.2,
+    "base_amount": 10
+  },
+  "green peas": {
+    "unit": "g",
+    "carbs": 5.5,
+    "protein": 2.0,
+    "fat": 0.2,
+    "base_amount": 10
+  },
+  "broccoli": {
+    "unit": "g",
+    "carbs": 0.7,
+    "protein": 0.9,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "cauliflower": {
+    "unit": "g",
+    "carbs": 0.5,
+    "protein": 0.8,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "zucchini": {
+    "unit": "g",
+    "carbs": 0.3,
+    "protein": 0.3,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "eggplant": {
+    "unit": "g",
+    "carbs": 0.6,
+    "protein": 0.2,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "cucumber": {
+    "unit": "g",
+    "carbs": 0.4,
+    "protein": 0.3,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "pepper": {
+    "unit": "g",
+    "carbs": 0.6,
+    "protein": 0.2,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "mushrooms": {
+    "unit": "g",
+    "carbs": 0.3,
+    "protein": 0.3,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "lettuce": {
+    "unit": "g",
+    "carbs": 0.2,
+    "protein": 0.2,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "kale": {
+    "unit": "g",
+    "carbs": 0.9,
+    "protein": 0.9,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "cabbage": {
+    "unit": "g",
+    "carbs": 0.6,
+    "protein": 0.3,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "celery": {
+    "unit": "g",
+    "carbs": 0.4,
+    "protein": 0.2,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "beets": {
+    "unit": "g",
+    "carbs": 0.9,
+    "protein": 0.3,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "sweet potato": {
+    "unit": "g",
+    "carbs": 2.0,
+    "protein": 0.2,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "pineapple": {
+    "unit": "g",
+    "carbs": 1.3,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "strawberries": {
+    "unit": "g",
+    "carbs": 0.8,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "blueberries": {
+    "unit": "g",
+    "carbs": 1.4,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "grapes": {
+    "unit": "g",
+    "carbs": 1.7,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "orange": {
+    "unit": "g",
+    "carbs": 1.2,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "lemon": {
+    "unit": "g",
+    "carbs": 0.9,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "lime": {
+    "unit": "g",
+    "carbs": 1.1,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "peach": {
+    "unit": "g",
+    "carbs": 1.0,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "plum": {
+    "unit": "g",
+    "carbs": 1.1,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "pear": {
+    "unit": "g",
+    "carbs": 1.2,
+    "protein": 0.1,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "ham": {
+    "unit": "g",
+    "carbs": 0.2,
+    "protein": 21.2,
+    "fat": 1.2,
+    "base_amount": 100
+  },
+  "peanut butter": {
+    "unit": "g",
+    "carbs": 19,
+    "protein": 28,
+    "fat": 51,
+    "base_amount": 100
+  },
+  "skyr": {
+    "unit": "g",
+    "carbs": 3.8,
+    "protein": 12,
+    "fat": 0,
+    "base_amount": 100
+  },
+  "farmer cheese": {
+    "unit": "g",
+    "carbs": 3.5,
+    "protein": 19,
+    "fat": 0,
+    "base_amount": 100
+  },
+  "kiwi": {
+    "unit": "g",
+    "carbs": 13.9,
+    "protein": 0.9,
+    "fat": 0.5,
+    "base_amount": 100
+  },
+  "ginger": {
+    "unit": "g",
+    "carbs": 17.8,
+    "protein": 1.8,
+    "fat": 0.7,
+    "base_amount": 100
+  },
+  "tofu": {
+    "unit": "g",
+    "carbs": 1,
+    "protein": 12,
+    "fat": 8,
+    "base_amount": 100
+  },
+  "wrap": {
+    "unit": "item",
+    "carbs": 31,
+    "protein": 6,
+    "fat": 5.4,
+    "base_amount": 100
+  },
+  "corn": {
+    "unit": "g",
+    "carbs": 21.2,
+    "protein": 2.3,
+    "fat": 0.8,
+    "base_amount": 100
+  },
+  "coconut milk": {
+    "unit": "ml",
+    "carbs": 0.3,
+    "protein": 0.2,
+    "fat": 2.2,
+    "base_amount": 10
+  },
+  "mayonnaise": {
+    "unit": "g",
+    "carbs": 0.1,
+    "protein": 0.1,
+    "fat": 7.5,
+    "base_amount": 10
+  },
+  "kohlrabi": {
+    "unit": "g",
+    "carbs": 0.6,
+    "protein": 0.4,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "jam": {
+    "unit": "g",
+    "carbs": 6.5,
+    "protein": 0.1,
+    "fat": 0.0,
+    "base_amount": 10
+  },
+  "ketchup": {
+    "unit": "g",
+    "carbs": 2.4,
+    "protein": 0.2,
+    "fat": 0.0,
+    "base_amount": 10
+  },
+  "sausages": {
+    "unit": "g",
+    "carbs": 0.2,
+    "protein": 1.3,
+    "fat": 3.0,
+    "base_amount": 10
+  },
+  "oat milk": {
+    "unit": "ml",
+    "carbs": 1.2,
+    "protein": 0.1,
+    "fat": 0.3,
+    "base_amount": 10
+  },
+  "almond milk": {
+    "unit": "ml",
+    "carbs": 0.3,
+    "protein": 0.2,
+    "fat": 0.6,
+    "base_amount": 10
+  },
+  "passata": {
+    "unit": "g",
+    "carbs": 1.4,
+    "protein": 0.5,
+    "fat": 0.1,
+    "base_amount": 10
+  },
+  "canned mackerel": {
+    "unit": "g",
+    "carbs": 0.0,
+    "protein": 2.3,
+    "fat": 2.5,
+    "base_amount": 10
+  },
+  "ciasteczko": {
+    "unit": "item",
+    "carbs": 10.0,
+    "protein": 20.0,
+    "fat": 5.0,
+    "base_amount": 100.0
+  }
 }

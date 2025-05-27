@@ -1,5 +1,5 @@
 from datetime import datetime
-from ingredient import IngredientInstance, load_ingredient_table
+from ingredient import IngredientInstance, IngredientData, load_ingredient_table, save_ingredient_table
 
 ingredient_table = load_ingredient_table()
 
@@ -150,7 +150,26 @@ class Recipe:
                 break
             if ingredient not in ingredient_table:
                 print(f"'{ingredient}' is not in the ingredient table.")
-                continue
+                add_new = input("Would you like to add it? (y/n): ").strip().lower()
+                if add_new == 'y':
+                    unit = input("Unit (e.g., g, ml, item): ").strip()
+                    try:
+                        base_amount = float(input("Nutritional info for (e.g., 10 for 10g/ml): "))
+                        carbs = float(input("Carbohydrates per base amount: "))
+                        protein = float(input("Protein per base amount: "))
+                        fat = float(input("Fat per base amount: "))
+                        print('\n')
+                    except ValueError:
+                        print("Invalid input. Skipping this ingredient.")
+                        continue
+            
+                    # Create and add to table
+                    new_data = IngredientData(unit, carbs, protein, fat, base_amount)
+                    ingredient_table[ingredient] = new_data
+                    # Optional: Save it to the JSON file
+                    save_ingredient_table(ingredient_table)
+                else:
+                    continue
             try:
                 amount = float(input(f"Amount in {ingredient_table[ingredient].unit}: "))
                 print('\n')

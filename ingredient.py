@@ -75,9 +75,15 @@ def load_ingredient_table(filepath="ingredient_data.json"):
     with open(filepath, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
         return {
-            name: IngredientData(**data)
+            name.lower(): IngredientData(**data)
             for name, data in raw_data.items()
         }
+    
+def save_ingredient_table(table, filepath="ingredient_data.json"):
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump({name: data.to_dict() for name, data in table.items()}, f, indent=2)
+
+
 
 # If you want some testing/demo code for this file, use the usual guard:
 if __name__ == "__main__":
